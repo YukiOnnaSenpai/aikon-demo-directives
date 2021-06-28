@@ -24,8 +24,8 @@ export class HomeComponent implements OnInit {
     this.displayComponents();
 
     
-    // console.log("PRODAVNICA HOSTNAME IZVOLITE >>>>>> " + location.hostname)
-    this.homeService.getAll();
+    console.log("PRODAVNICA HOSTNAME IZVOLITE >>>>>> " + location.hostname)
+    this.homeService.getAll().subscribe();
   }
 
   loadComponent() {

@@ -34,7 +34,7 @@ export class HomeService {
   }
 
   public getAll() {
-    return this.http.get<Array<string>>('localhost:4200/server/advertisement/getAllComments', httpOptions);
+    return this.http.get<Array<string>>('localhost:8080/server/advertisement/getAllComments', httpOptions);
   }
 
 }
