@@ -3,11 +3,17 @@ import { ComponentItem } from 'src/util/component-item';
 import { NemzaComponent } from '../nemza/nemza.component';
 import { SnortijaComponent } from '../snortija/snortija.component';
 import { SukiComponent } from '../suki/suki.component';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+
+const httpOptions = {headers: new HttpHeaders({'Content-Type' : 'application/json'})};
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
+
+  constructor(private http: HttpClient) { }
+
   getComponents() {
     return [
       new ComponentItem(NemzaComponent, {name: 'Bombasto', bio: 'Brave as they come'}),
@@ -26,4 +32,9 @@ export class HomeService {
                                         body: 'Apply today'}),
     ];
   }
+
+  public getAll() {
+    return this.http.get<Array<string>>('localhost:8080/server/advertisement/getAllComments', httpOptions);
+  }
+
 }
